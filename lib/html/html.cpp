@@ -7,10 +7,11 @@
 using namespace std;
 
 
-// Удалить лишнее
-// README: сборка, запуск
-// gcov
-
+/**
+ * @brief lambda func to accumulate to string new lines with th
+ * @param html - your current string
+ * @param numb - required number for adding
+ */
 auto str_add_th = [](string html, int numb) {
     html += "\t\t<th>";
     html += to_string(numb);
@@ -18,6 +19,11 @@ auto str_add_th = [](string html, int numb) {
     return html;
 };
 
+/**
+ * @brief lambda func to accumulate to string new lines with td
+ * @param html - your current string
+ * @param numb - required number for adding
+ */
 auto str_add_td = [](string html, int numb) {
     html += "\t\t<td>";
     html += to_string(numb);
@@ -25,9 +31,26 @@ auto str_add_td = [](string html, int numb) {
     return html;
 };
 
+/**
+ * @brief convert matrix to html-string
+ * 
+ * @param array - your current matrix
+ * @param count_lines - count of lines in your matrix
+ * @param count_columns - count of columns in your matrix
+ * @return string - matrix in html format
+ */
 string matrix_to_html(const int** array, size_t count_lines, size_t count_columns) {
     return matrix_to_html(array, count_lines, count_columns, NULL);
 }
+/**
+ * @brief convert matrix to html-string
+ * 
+ * @param array - your current matrix
+ * @param count_lines - count of lines in your matrix
+ * @param count_columns - count of columns in your matrix
+ * @param style - style of matrix in html required for adding
+ * @return string - matrix in html format
+ */
 string matrix_to_html(const int** array, size_t count_lines, size_t count_columns, const char* style) {
     if (array == nullptr)
         throw std::logic_error("Incorrect Input!");
@@ -74,10 +97,22 @@ string matrix_to_html(const int** array, size_t count_lines, size_t count_column
     html += "</html>\n";
     return html;
 }
+/**
+ * @brief convert matrix to html-string
+ * 
+ * @param array - your current matrix
+ * @return string - matrix in html format
+ */
 string matrix_to_html(std::vector<std::vector<int>> array) {
     return matrix_to_html(array, "");
 }
-
+/**
+ * @brief convert matrix to html-string
+ * 
+ * @param array - your current matrix
+ * @param style - style of matrix in html required for adding
+ * @return string - matrix in html format
+ */
 string matrix_to_html(std::vector<std::vector<int>> array, std::string style) {
     int check = 0;
     string html;
