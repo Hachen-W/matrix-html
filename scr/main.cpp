@@ -8,6 +8,13 @@
 
 using namespace std;
 
+/**
+ * @brief types of errors in current file<br>
+ * OK - func work well
+ * ALLOCATION - func can't work with memory
+ * INPUT - incorrect input
+ * UNDEFINED - undefined error
+ */
 enum errors {
     OK = 0,
     ALLOCATION,
@@ -16,10 +23,16 @@ enum errors {
 };
 
 const char *msgs[] = {"Input Matrix", "Input Style", "Output Matrix", 
-                            "Matrix To HTML", "Exit"};
-const int N = sizeof(msgs) / sizeof(msgs[1]);
+                            "Matrix To HTML", "Exit"};                  ///< array of menu's msgs
+const int N = sizeof(msgs) / sizeof(msgs[1]);                           ///< size of array above
 
 int dialog();
+
+/**
+ * @brief func for manual testing
+ * 
+ * @return int 
+ */
 
 int main() {
     Matrix* matrix = nullptr;
@@ -78,6 +91,12 @@ int main() {
     matrix_delete(matrix);
     return OK;
 }
+
+/**
+ * @brief func for choosing an option from menu
+ * 
+ * @return int - selected option
+ */
 
 int dialog() {
     int rc, option;

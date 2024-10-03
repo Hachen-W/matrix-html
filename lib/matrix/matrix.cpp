@@ -16,6 +16,11 @@ enum errors {
     LOGICAL,
 };
 
+/**
+ * @brief func to create a matrix with empty fields
+ * 
+ * @return Matrix* - new matrix
+ */
 Matrix* matrix_new() {
     Matrix* matrix = new Matrix;
     matrix->size = 0;
@@ -31,6 +36,12 @@ int* int_array_new(unsigned int size) {
     return new int[size];
 }
 
+/**
+ * @brief func to input matrix from console
+ * 
+ * @param matrix - previously generated matrix
+ * @param size - required quantity of lines
+ */
 void matrix_input(Matrix &matrix, const unsigned int &size) {
     if (size < 0)
         throw std::logic_error("Incorrect Argument");
@@ -64,6 +75,11 @@ void matrix_input(Matrix &matrix, const unsigned int &size) {
     }
 }
 
+/**
+ * @brief func to output your matrix
+ * 
+ * @param matrix - previously generated matrix
+ */
 void matrix_output(const Matrix &matrix) {
     if (matrix.lines == nullptr)
         throw std::logic_error("Incorrect Argument");
@@ -84,6 +100,11 @@ void style_input(Matrix &matrix, const string &str) {
     matrix.style = str;
 }
 
+/**
+ * @brief func to delete your matrix
+ * 
+ * @param matrix - previously generated matrix
+ */
 void matrix_delete(Matrix* matrix) {
     if (matrix == nullptr)
         return;
@@ -96,6 +117,12 @@ void matrix_delete(Matrix* matrix) {
     delete matrix;
 }
 
+/**
+ * @brief func to delete lines in matrix
+ * 
+ * @param lines - pointer to lines in your matrix
+ * @param size - count of lines in your matrix
+ */
 void lines_delete(Line* lines, unsigned int size) {
     if (lines != nullptr)
         for (int i = 0; i < size; i++)
@@ -104,6 +131,12 @@ void lines_delete(Line* lines, unsigned int size) {
     delete [] lines;
 }
 
+/**
+ * @brief func to generated matrix in new type
+ * 
+ * @param matrix 
+ * @return std::vector<std::vector<int>> - vector of vector of int with your matrix in new type
+ */
 std::vector<std::vector<int>> matrix_get_vector(Matrix &matrix) {
     std::vector<std::vector<int>> array;
     std::vector<int> array_sub;
@@ -116,6 +149,12 @@ std::vector<std::vector<int>> matrix_get_vector(Matrix &matrix) {
     return array;
 }
 
+/**
+ * @brief func to generated matrix in new type
+ * 
+ * @param matrix - previously generated matrix
+ * @return int** - array of array of int with your matrix in new type
+ */
 int** matrix_get_array(Matrix &matrix) {
     int **array = new int*[matrix.size];
     for (int i = 0; i < matrix.size; i++) {
