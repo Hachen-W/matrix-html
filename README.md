@@ -30,4 +30,3 @@ cmake -G "Unix Makefile"
 ```bash
 gcovr -r .. -e CMakeFiles --html-details -o coverage.html
 ```
->>>>>>> b96aa32c1c72419d4b535737fdf31bb9e7596910
